@@ -1,0 +1,14 @@
+[Install]
+WantedBy=multi-user.target
+
+[Unit]
+Description=Google Cloud Compute Engine SQL Proxy
+
+
+[Service]
+Type=simple
+WorkingDirectory=/usr/local/bin
+ExecStart=/usr/local/bin/cloud_sql_proxy -dir=/var/run/cloud-sql-proxy -instances=tier-demo-proj:asia-east2:sample-mysql=tcp:5432
+Restart=always
+StandardOutput=journal
+User=root
